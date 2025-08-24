@@ -9,6 +9,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **Manual start**: `cd backend && uv run uvicorn app:app --reload --port 8000`
 - **Install dependencies**: `uv sync`
 
+### Code Quality and Formatting
+- **Format code**: `./format.sh` (runs black and isort formatting)
+- **Check code quality**: `./lint.sh` (runs flake8, isort, and black checks)
+- **Full quality pipeline**: `./quality.sh` (format + lint in sequence)
+- **Manual commands**:
+  - Format with black: `uv run black .`
+  - Sort imports: `uv run isort .`
+  - Lint with flake8: `uv run flake8 .`
+  - Check formatting: `uv run black . --check --diff`
+  - Check import order: `uv run isort . --check-only --diff`
+
 ### Environment Setup
 - Create `.env` file with `ANTHROPIC_API_KEY=your-api-key-here` (see `.env.example`)
 - The application loads documents from `../docs` folder on startup
@@ -103,6 +114,7 @@ The system follows a **tool-based RAG pattern** where the AI uses function calli
 - **Dual vector collections**: Separate course metadata from content for better search precision  
 - **Session management**: Maintains conversation history with configurable limits
 - **Smart chunking**: Sentence-based with lesson context injection for better retrieval
+- **Code quality tools**: Black (formatting), isort (import sorting), flake8 (linting) configured for consistent code style
 - **No testing framework**: This is a starting codebase without tests or CI/CD setup
 - always use uv to run the server do not use pip directly
 - use uv to run python files
