@@ -11,7 +11,10 @@
       "Bash(git commit:*)",
       "Bash(uv run:*)",
       "Bash(uv run isort:*)",
-      "Bash(./lint.sh)"
+      "Bash(./lint.sh)",
+      "Bash(git worktree:*)",
+      "Bash(git merge:*)",
+      "Bash(git stash:*)"
     ],
     "deny": [],
     "ask": []
